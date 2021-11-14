@@ -17,8 +17,8 @@
 		<h1>FILL IT UP</h1>
 
 		<!-- Game Instructions -->
-		<p id="ins">Fill up all the squares with cyan</br>
-			Rule : A button click will fill all its up, down, left, right buttons to cyan, and itself to grey
+		<p class="ins">Fill up all the squares with cyan with minimum number of clicks.</br>
+			A button click will fill all its neighbors (up, down, left, right) to cyan.
 
 		</p>
 
@@ -26,36 +26,89 @@
 		<br><br>
 		<!-- 3*3 grid of Boxes -->
 		<input type="text" id="b1" onclick=
-			"set_cyan([2,4]); set_grey(1)" readonly>
+			"set_cyan(1);" readonly>
 
 		<input type="text" id="b2" onclick=
-			"set_cyan([1,3,5]); set_grey(2)" readonly>
+			"set_cyan(2);" readonly>
 
 		<input type="text" id="b3" onclick=
-			"set_cyan([2,6]); set_grey(3)" readonly>
-		<br><br>
+			"set_cyan(3);" readonly>
 
 		<input type="text" id="b4" onclick=
-			"set_cyan([1,5,7]); set_grey(4)" readonly>
+			"set_cyan(4);" readonly>
 			
 		<input type="text" id="b5" onclick=
-			"set_cyan([2,4,6,8]); set_grey(5)" readonly>
-
-		<input type="text" id="b6" onclick=
-			"set_cyan([3,5,9]); set_grey(6)" readonly>
+			"set_cyan(5);" readonly>
 		<br><br>
 
+		
+
+		<input type="text" id="b6" onclick=
+			"set_cyan(6);" readonly>
 		<input type="text" id="b7" onclick=
-			"set_cyan([4,8]); set_grey(7)" readonly>
+			"set_cyan(7);" readonly>
 
 		<input type="text" id="b8" onclick=
-			"set_cyan([5,7,9]); set_grey(8)" readonly>
+			"set_cyan(8);" readonly>
 
 		<input type="text" id="b9" onclick=
-			"set_cyan([6,8]); set_grey(9)" readonly>
+			"set_cyan(9);" readonly>
+		<input type="text" id="b10" onclick=
+			"set_cyan(10);" readonly>			
+		<br><br>
+
+		<input type="text" id="b11" onclick=
+			"set_cyan(11);" readonly>
+
+		<input type="text" id="b12" onclick=
+			"set_cyan(12);" readonly>
+
+		<input type="text" id="b13" onclick=
+			"set_cyan(13);" readonly>
+
+		<input type="text" id="b14" onclick=
+			"set_cyan(14);" readonly>
+			
+		<input type="text" id="b15" onclick=
+			"set_cyan(15);" readonly>
+		<br><br>
+
+		<input type="text" id="b16" onclick=
+			"set_cyan(16);" readonly>
+		<input type="text" id="b17" onclick=
+			"set_cyan(17);" readonly>
+
+		<input type="text" id="b18" onclick=
+			"set_cyan(18);" readonly>
+
+		<input type="text" id="b19" onclick=
+			"set_cyan(19);" readonly>
+		<input type="text" id="b20" onclick=
+			"set_cyan(20);" readonly>			
+		<br><br>
+
+		<input type="text" id="b21" onclick=
+			"set_cyan(21);" readonly>
+
+		<input type="text" id="b22" onclick=
+			"set_cyan(22);" readonly>
+
+		<input type="text" id="b23" onclick=
+			"set_cyan(23);" readonly>
+
+		<input type="text" id="b24" onclick=
+			"set_cyan(24);" readonly>
+			
+		<input type="text" id="b25" onclick=
+			"set_cyan(25);" readonly>
+		<br><br>
+
+
 
 		<!-- Grid end here -->
 		<br><br><br>
+
+		<p class="ins" id="moves">Number of clicks : 0</p>
 		<!-- Button to reset game -->
 		<button id="but" onclick="reset_squares()">
 			RESET
