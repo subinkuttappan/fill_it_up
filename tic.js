@@ -1,50 +1,87 @@
 var click_count = 0;
 
-function set_cyan(square_id) {
+let squares = Array(5).fill().map(() => Array(5).fill(0));
+// 0 - grey
+// 1 - cyan
+
+function set_cyan(row, column) {
 	
-	neighbors = [];
-	if(square_id % 5 != 1) {
-		neighbors.push(square_id - 1);
+	toggle(row, column);
+	if(row != 0 && row != 4 && column != 0 && column != 4) {
+		toggle(row, column-1);
+		toggle(row, column+1);
+		toggle(row-1, column);
+		toggle(row+1, column);
 	}
-
-	if(square_id % 5 != 0) {
-		neighbors.push(square_id + 1);
+	else if(row == 0 && column == 0) {
+		toggle(row, column+1);
+		toggle(row+1, column);
 	}
-
-	if(square_id > 5) {
-		neighbors.push(square_id - 5);
+	else if(row == 0 && column == 4) {
+		toggle(row, column-1);
+		toggle(row+1, column);
 	}
-
-	if(square_id <=20) {
-		neighbors.push(square_id + 5);
+	else if(row == 4 && column == 0) {
+		toggle(row-1, column);
+		toggle(row, column+1);
 	}
-	console.log("square_id: " + square_id + " neighbors: " + neighbors);
+	else if (row == 4 && column == 4) {
+		toggle(row-1, column);
+		toggle(row, column-1);
+	}
+	else if(row == 0) {
+		toggle(row, column-1);
+		toggle(row, column+1);
+		toggle(row+1, column);
+	}
+	else if(column == 0) {
+		toggle(row, column+1);
+		toggle(row-1, column);
+		toggle(row+1, column);
+	}
+	else if(row == 4) {
+		toggle(row-1, column);
+		toggle(row, column-1);
+		toggle(row, column+1);
+	}
+	else if(column == 4) {
+		toggle(row-1, column);
+		toggle(row+1, column);
+		toggle(row, column-1);
+	}
+	//console.log("square_id: " + square_id + " neighbors: " + neighbors);
 	
-	for(id in neighbors) {
+	/*for(id in neighbors) {
 		console.log(neighbors[id]);
 		var id = "b" + neighbors[id];
 		document.getElementById(id).style.backgroundColor = "#34ebd8";
-		/*switch(neighbors[id]) {
-			case 1 : document.getElementById("b1").style.backgroundColor = "#34ebd8";break;
-			case 2 : document.getElementById("b2").style.backgroundColor = "#34ebd8";break;
-			case 3 : document.getElementById("b3").style.backgroundColor = "#34ebd8";break;
-			case 4 : document.getElementById("b4").style.backgroundColor = "#34ebd8";break;
-			case 5 : document.getElementById("b5").style.backgroundColor = "#34ebd8";break;
-			case 6 : document.getElementById("b6").style.backgroundColor = "#34ebd8";break;
-			case 7 : document.getElementById("b7").style.backgroundColor = "#34ebd8";break;
-			case 8 : document.getElementById("b8").style.backgroundColor = "#34ebd8";break;
-			case 9 : document.getElementById("b9").style.backgroundColor = "#34ebd8";break;
-		}*/
-	}
+	}*/
 	click_count ++;
 	document.getElementById("moves").innerHTML = "Number of clicks : " + click_count;
+
+	console.log(squares);
+}
+
+function toggle(row, column) {
+	var id = "b_" + row + "_" + column;
+		
+    if(squares[row][column] == 0) {
+    	squares[row][column] = 1;
+    	document.getElementById(id).style.backgroundColor = "#34ebd8";
+    }
+    else {
+    	squares[row][column] = 0;
+    	document.getElementById(id).style.backgroundColor = "darkgrey";
+    }
 }
 
 function reset_squares() {
-	for (i=1;i<=25;i++)
-	{
-		var id = "b" + i;
-		document.getElementById(id).style.backgroundColor = "darkgrey";
+	for (i=0;i<5;i++) {
+		for(j=0;j<5;j++) {
+			var id = "b_" + i + "_" + j;
+			document.getElementById(id).style.backgroundColor = "darkgrey";
+			squares[i][j] = 0;
+		}
 	}
 	click_count=0;
 	document.getElementById("moves").innerHTML = "Number of clicks : 0";
