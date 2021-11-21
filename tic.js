@@ -60,6 +60,17 @@ function set_cyan(row, column) {
 	document.getElementById("moves").innerHTML = "Number of clicks : " + click_count;
 
 	console.log(squares);
+	var cyanCount = 0;
+	for (i=0;i<5;i++) {
+		for(j=0;j<5;j++) {
+			if(squares[i][j] == 1) {
+				cyanCount ++;
+			}
+		}
+	}
+	if(cyanCount == 25) {
+		alert("Congratulations. You have won.");
+	}
 }
 
 function toggle(row, column) {
