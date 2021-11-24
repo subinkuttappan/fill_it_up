@@ -98,3 +98,16 @@ function reset_squares() {
 	document.getElementById("moves").innerHTML = "Number of clicks : 0";
 
 }
+
+function fill_squares() {
+	for (i=0;i<5;i++) {
+		for(j=0;j<5;j++) {
+			var id = "b_" + i + "_" + j;
+			document.getElementById(id).style.backgroundColor = "#34ebd8";
+			squares[i][j] = 1;
+		}
+	}
+	click_count=0;
+	document.getElementById("moves").innerHTML = "Number of clicks : 0";
+
+}
