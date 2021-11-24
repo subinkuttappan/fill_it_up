@@ -86,6 +86,22 @@ function toggle(row, column) {
     }
 }
 
+function start_game() {
+	reset_squares();
+
+	var cell = Math.floor(Math.random() * 25);
+
+	var r = Math.round(cell / 5);
+	if (r == 5) {
+		r = 4;
+	}
+	var c = cell % 5;
+        var id = "b_" + r + "_" + c;
+        console.log("cell : " + cell + " r : " + r + " c : " + c + " id : " + id) ;
+        document.getElementById(id).style.backgroundColor = "#34ebd8";
+	squares[r][c] = 1;
+}
+
 function reset_squares() {
 	for (i=0;i<5;i++) {
 		for(j=0;j<5;j++) {
