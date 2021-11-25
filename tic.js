@@ -71,6 +71,8 @@ function set_cyan(row, column) {
 	if(cyanCount == 25) {
 		alert("Congratulations. You have won.");
 	}
+
+	play();
 }
 
 function toggle(row, column) {
@@ -126,4 +128,9 @@ function fill_squares() {
 	click_count=0;
 	document.getElementById("moves").innerHTML = "Number of clicks : 0";
 
+}
+
+function play() {
+    var audio = document.getElementById("playclick");
+    audio.play();
 }
